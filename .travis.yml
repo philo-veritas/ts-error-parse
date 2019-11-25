@@ -1,10 +1,11 @@
 language: nodejs
 
 node_js:
-    - '12'
+  - "12"
 
 install:
   - npm run setup
 
 script:
+  - npm run lint
   - npm run test

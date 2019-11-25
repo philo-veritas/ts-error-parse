@@ -5,18 +5,32 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install",
+    "pretty-quick": "pretty-quick",
+    "lint": "./node_modules/tslint/bin/tslint -c tslint.json src/**/*.ts test/**/*.ts",
     "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register test/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@types/chai": "^4.2.5",
     "@types/mocha": "^5.2.7",
     "awesome-typescript-loader": "^5.2.1",
     "chai": "^4.2.0",
+    "husky": "^3.1.0",
     "mocha": "^6.2.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "source-map-loader": "^0.2.4",
     "ts-node": "^8.5.2",
+    "tslint": "^5.20.1",
     "typescript": "^3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
