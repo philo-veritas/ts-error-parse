@@ -17,7 +17,19 @@ describe("parseError function", () => {
       chromeError.name = "TypeError";
       chromeError.message = "Error raised";
       chromeError.stack = fixtureStack;
-      expect(1).to.equal(1);
+
+      const errorMessage = parseError(chromeError);
+      const expectedErrorMessage = {
+        message: "Error raised",
+        stack: [
+          { line: 2, column: 9, filename: "http://192.168.31.8:8000/c.js" },
+          { line: 4, column: 15, filename: "http://192.168.31.8:8000/b.js" },
+          { line: 4, column: 3, filename: "http://192.168.31.8:8000/a.js" },
+          { line: 22, column: 3, filename: "http://192.168.31.8:8000/a.js" },
+        ],
+      };
+
+      expect(errorMessage).to.deep.equal(expectedErrorMessage);
     });
   });
   describe("Firefox Error Case", () => {
@@ -34,8 +46,17 @@ describe("parseError function", () => {
       firefoxError.message = "Error raised";
       firefoxError.stack = fixtureFirefoxStack;
 
-      const result = "Hello World!";
-      expect(1).to.equal(1);
+      const errorMessage = parseError(firefoxError);
+      const expectedErrorMessage = {
+        message: "Error raised",
+        stack: [
+          { line: 2, column: 9, filename: "http://192.168.31.8:8000/c.js" },
+          { line: 4, column: 15, filename: "http://192.168.31.8:8000/b.js" },
+          { line: 4, column: 3, filename: "http://192.168.31.8:8000/a.js" },
+          { line: 22, column: 3, filename: "http://192.168.31.8:8000/a.js" },
+        ],
+      };
+      expect(errorMessage).to.deep.equal(expectedErrorMessage);
     });
   });
 });
