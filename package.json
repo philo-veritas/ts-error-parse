@@ -1,0 +1,21 @@
+{
+  "name": "foundation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register test/**/*.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.5",
+    "@types/mocha": "^5.2.7",
+    "awesome-typescript-loader": "^5.2.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "source-map-loader": "^0.2.4",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}
