@@ -1,0 +1,10 @@
+language: nodejs
+
+node_js:
+    - '12'
+
+install:
+  - npm run setup
+
+script:
+  - npm run test

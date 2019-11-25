@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup": "npm install",
     "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register test/**/*.ts"
   },
   "author": "",
